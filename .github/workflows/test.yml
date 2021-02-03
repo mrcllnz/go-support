@@ -17,8 +17,9 @@ jobs:
           go-version: ${{ matrix.go-version }}
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: pull-request-action
+          uses: vsoch/pull-request-action@1.0.6
       - name: Test
-        uses: vsoch/pull-request-action@1.0.6
         env:
           PULL_REQUEST_BODY2 : ${{ github.event.pull_request.body }}
         run: |
