@@ -21,6 +21,8 @@ jobs:
         env:
           PULL_REQUEST_BODY : ${{ github.event.pull_request.body }}
         run: |
+          env
+          echo $PULL_REQUEST_BODY
           export TCK_SKIP=`echo $PULL_REQUEST_BODY | grep ^/tck-skip | paste -sd ","`
           export TCK_RUN=`echo $PULL_REQUEST_BODY | grep ^/tck-run | paste -sd ","`
           echo $TCK_SKIP
